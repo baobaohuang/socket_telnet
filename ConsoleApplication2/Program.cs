@@ -245,7 +245,7 @@ namespace ConsoleApplication2
 
                 // Complete sending the data to the remote device.
                 int bytesSent = client.EndSend(ar);
-                Console.WriteLine("Sent {0} bytes to server.", bytesSent);
+                //Console.WriteLine("Sent {0} bytes to server.", bytesSent);
 
                 // Signal that all bytes have been sent.
                 sendDone.Set();
@@ -340,16 +340,15 @@ namespace ConsoleApplication2
             //    file.Write(result);
 
             //}
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\cxxxxn.txt", true))
-            {
-
+            
                 // There might be more data, so store the data received so far.
                 //file.Write(result);
 
                 string test = Encoding.GetEncoding(950).GetString(ASCII);
  
-                foreach (byte c in ASCII)
-                {                     
+                for (int i=0 ; i<bytesRead ;i++ )
+                {   
+                    c = ASCII[i];
                     //escape sequence start flag
                     if (c == 0x1b) cond_code = true;
 
@@ -605,7 +604,7 @@ namespace ConsoleApplication2
                 {                 
                 }
                 //file.Write(Environment.NewLine);
-            }
+           
         }
 
         private static void ASCII_sequenceParser(ref Socket client, ref byte[] sequence)
