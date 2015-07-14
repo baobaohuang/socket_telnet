@@ -348,7 +348,7 @@ namespace ConsoleApplication2
  
                 for (int i=0 ; i<bytesRead ;i++ )
                 {   
-                    c = ASCII[i];
+                    var c = ASCII[i];
                     //escape sequence start flag
                     if (c == 0x1b) cond_code = true;
 
